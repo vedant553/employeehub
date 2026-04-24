@@ -21,7 +21,7 @@
     "lucide-react": "^1.8.0",
     "framer-motion": "^12.38.0",
     "@base-ui/react": "^1.4.0",
-    "@hryantra/ui": "0.1.0"
+    "@hryantra/ui": "file:../packages/ui"
   },
   "devDependencies": {
     "@types/node": "^20",
