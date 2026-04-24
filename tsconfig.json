@@ -28,7 +28,7 @@
         "./src/*"
       ],
       "@hryantra/ui": [
-        "../packages/ui/src"
+        "../packages/ui/src/index"
       ],
       "react": ["./node_modules/@types/react"],
       "react/*": ["./node_modules/@types/react/*"]
