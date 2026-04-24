@@ -20,7 +20,8 @@
     "tailwind-merge": "^3.5.0",
     "lucide-react": "^1.8.0",
     "framer-motion": "^12.38.0",
-    "@base-ui/react": "^1.4.0"
+    "@base-ui/react": "^1.4.0",
+    "@hryantra/ui": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20",
