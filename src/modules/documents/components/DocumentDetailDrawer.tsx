@@ -36,7 +36,7 @@ export function DocumentDetailDrawer({ document, open, onClose }: DocumentDetail
               <Archive className="size-4 mr-2" /> Archive
             </Button>
           )}
-          <Button variant="primary">
+          <Button variant="default">
             <Download className="size-4 mr-2" /> Download
           </Button>
         </>

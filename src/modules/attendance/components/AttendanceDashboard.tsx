@@ -46,7 +46,7 @@ export function AttendanceDashboard() {
         <div className="flex items-center gap-3">
           {!hasCheckedIn ? (
             <>
-              <Button variant="primary" onClick={() => checkIn('office')}>
+              <Button variant="default" onClick={() => checkIn('office')}>
                 <LogIn className="size-4 mr-2" />
                 Office Check-in
               </Button>

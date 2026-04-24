@@ -101,7 +101,7 @@ export function ApprovalDrawer({ item, onClose, onApprove, onReject }: {
                <Button variant="outline" className="flex-1 text-ds-danger border-ds-danger hover:bg-ds-danger hover:text-white" onClick={() => handleCustomAction('reject')}>
                  Reject
                </Button>
-               <Button variant="primary" className="flex-1" onClick={() => handleCustomAction('approve')}>
+               <Button variant="default" className="flex-1" onClick={() => handleCustomAction('approve')}>
                  Approve Request
                </Button>
              </div>

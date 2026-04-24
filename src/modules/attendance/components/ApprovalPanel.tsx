@@ -37,7 +37,7 @@ export function ApprovalPanel() {
                 <Button variant="outline" size="sm" className="border-red-200 text-red-600 hover:bg-red-50" onClick={() => updateRequestStatus(req.id, 'Rejected')}>
                   Reject
                 </Button>
-                <Button variant="primary" size="sm" onClick={() => updateRequestStatus(req.id, 'Approved')}>
+                <Button variant="default" size="sm" onClick={() => updateRequestStatus(req.id, 'Approved')}>
                   Approve
                 </Button>
               </div>

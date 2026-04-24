@@ -33,7 +33,7 @@ export function TaskDetailDrawer({ task, open, onClose }: TaskDetailDrawerProps)
         <>
           <Button variant="outline" onClick={onClose} className="mr-auto">Close</Button>
           <Button variant="outline">Update Status</Button>
-          <Button variant="primary">Mark Complete</Button>
+          <Button variant="default">Mark Complete</Button>
         </>
       }
     >

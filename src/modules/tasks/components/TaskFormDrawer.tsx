@@ -35,7 +35,7 @@ export function TaskFormDrawer({ open, onClose, defaultAssigneeId }: TaskFormDra
       footer={
         <>
           <Button variant="outline" onClick={onClose} className="mr-auto">Cancel</Button>
-          <Button variant="primary" onClick={handleSave}>Create Task</Button>
+          <Button variant="default" onClick={handleSave}>Create Task</Button>
         </>
       }
     >

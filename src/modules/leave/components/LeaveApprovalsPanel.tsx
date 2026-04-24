@@ -50,7 +50,7 @@ export function LeaveApprovalsPanel() {
                 <Button variant="outline" size="sm" onClick={() => updateLeaveStatus(req.id, 'Modification Requested', 'Please adjust dates.')}>
                   Modify
                 </Button>
-                <Button variant="primary" size="sm" onClick={() => handleApprove(req.id, req.startDate, req.endDate)}>
+                <Button variant="default" size="sm" onClick={() => handleApprove(req.id, req.startDate, req.endDate)}>
                   Approve
                 </Button>
               </div>

@@ -33,7 +33,7 @@ export function EmployeeProfileHeader({ employee, onAssignTask }: EmployeeProfil
         
         <div className="flex flex-row gap-3 self-start sm:self-center">
           <Button variant="outline">Edit</Button>
-          <Button variant="primary" onClick={onAssignTask}>Assign Task</Button>
+          <Button variant="default" onClick={onAssignTask}>Assign Task</Button>
         </div>
       </div>
     </SectionCard>

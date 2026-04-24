@@ -27,7 +27,7 @@ export function LeavePage() {
       <PageHeader
         title="Leave Management"
         actions={
-          <Button variant="primary" onClick={() => setIsApplyOpen(true)}>
+          <Button variant="default" onClick={() => setIsApplyOpen(true)}>
             Apply for Leave
           </Button>
         }

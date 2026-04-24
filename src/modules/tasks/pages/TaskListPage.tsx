@@ -34,7 +34,7 @@ export function TaskListPage() {
           <div className="flex items-center gap-4">
             <div className="flex items-center bg-ds-neutral-100 p-1 rounded-lg border border-ds-neutral-200">
               <Button 
-                variant={viewMode === 'list' ? 'primary' : 'ghost'} 
+                variant={viewMode === 'list' ? 'default' : 'ghost'} 
                 size="sm"
                 className={viewMode === 'list' ? 'bg-white text-ds-brand-navy shadow-sm hover:bg-white' : ''}
                 onClick={() => setViewMode('list')}
@@ -43,7 +43,7 @@ export function TaskListPage() {
                 List
               </Button>
               <Button 
-                variant={viewMode === 'board' ? 'primary' : 'ghost'} 
+                variant={viewMode === 'board' ? 'default' : 'ghost'} 
                 size="sm"
                 className={viewMode === 'board' ? 'bg-white text-ds-brand-navy shadow-sm hover:bg-white' : ''}
                 onClick={() => setViewMode('board')}
@@ -53,7 +53,7 @@ export function TaskListPage() {
               </Button>
             </div>
             {currentUserRole !== 'Employee' && (
-              <Button variant="primary">
+              <Button variant="default">
                 <Plus className="size-4 mr-2" />
                 Create Task
               </Button>

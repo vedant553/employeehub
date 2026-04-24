@@ -226,7 +226,7 @@ export function AssetDetailDrawer({ asset, allocations, onClose, onAssign }: Pro
         {/* Footer Actions */}
         <div className="px-6 py-4 border-t border-ds-neutral-200 bg-ds-neutral-50 flex gap-3">
           {asset.status === 'Available' && (
-            <Button variant="primary" className="flex-1" onClick={onAssign}>
+            <Button variant="default" className="flex-1" onClick={onAssign}>
               Assign to Employee
             </Button>
           )}
@@ -255,7 +255,7 @@ export function AssetDetailDrawer({ asset, allocations, onClose, onAssign }: Pro
               />
               <div className="flex gap-2">
                 <Button variant="outline" size="sm" className="flex-1" onClick={() => setShowReturnModal(false)}>Cancel</Button>
-                <Button variant="primary" size="sm" className="flex-1" onClick={handleReturn}>Confirm Return</Button>
+                <Button variant="default" size="sm" className="flex-1" onClick={handleReturn}>Confirm Return</Button>
               </div>
             </div>
           )}

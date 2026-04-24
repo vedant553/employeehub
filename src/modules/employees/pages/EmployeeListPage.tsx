@@ -123,7 +123,7 @@ export function EmployeeListPage() {
     <div className="flex flex-col h-full space-y-6 max-w-7xl mx-auto w-full">
       <PageHeader
         title="Employees"
-        actions={<Button variant="primary">Add Employee</Button>}
+        actions={<Button variant="default">Add Employee</Button>}
       />
 
       <SectionCard>

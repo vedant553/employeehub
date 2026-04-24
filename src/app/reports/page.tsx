@@ -199,7 +199,7 @@ export default function ReportsPage() {
 
         {/* Data Table */}
         {activeTab === 'attendance' && (
-          <DataTable
+          <DataTable<any>
             data={attendanceData}
             columns={[
               { id: 'date', accessorKey: 'date', header: 'Date', sortable: true },
@@ -213,11 +213,11 @@ export default function ReportsPage() {
         )}
 
         {activeTab === 'tasks' && (
-          <DataTable
+          <DataTable<any>
             data={taskData}
             columns={[
               { id: 'title', accessorKey: 'title', header: 'Task', sortable: true },
-              { id: 'assignee', accessorKey: 'assignee.name', header: 'Assignee', sortable: true },
+              { id: 'assignee', header: 'Assignee', sortable: true, cell: ({ row }) => row.assignee.name },
               { id: 'priority', accessorKey: 'priority', header: 'Priority', cell: ({ row }) => <SeverityBadge level={row.priority.charAt(0).toUpperCase() + row.priority.slice(1)} uppercase={false} /> },
               { id: 'status', accessorKey: 'status', header: 'Status', cell: ({ row }) => <span className="capitalize px-2 py-0.5 rounded-full bg-ds-neutral-100 text-ds-body-xs font-medium">{row.status.replace('_', ' ')}</span> },
               { id: 'dueDate', accessorKey: 'dueDate', header: 'Due Date', sortable: true, cell: ({ row }) => <span suppressHydrationWarning>{new Date(row.dueDate).toLocaleDateString()}</span> },
@@ -227,20 +227,20 @@ export default function ReportsPage() {
         )}
 
         {activeTab === 'performance' && (
-          <DataTable
+          <DataTable<any>
             data={performanceData}
             columns={[
               { id: 'employee', accessorKey: 'employeeName', header: 'Employee', sortable: true },
               { id: 'period', accessorKey: 'period', header: 'Review Period' },
-              { id: 'score', accessorKey: 'metrics.finalScore', header: 'Final Score', sortable: true, cell: ({ row }) => <span className="font-bold text-ds-brand-navy">{row.metrics.finalScore}%</span> },
-              { id: 'category', accessorKey: 'metrics.category', header: 'Category', cell: ({ row }) => <StatusBadge status={row.metrics.category === 'Outstanding' ? 'Verified' : row.metrics.category === 'Needs Improvement' ? 'Failed' : 'Active'} /> },
+              { id: 'score', header: 'Final Score', sortable: true, cell: ({ row }) => <span className="font-bold text-ds-brand-navy">{row.metrics.finalScore}%</span> },
+              { id: 'category', header: 'Category', cell: ({ row }) => <StatusBadge status={row.metrics.category === 'Outstanding' ? 'Verified' : row.metrics.category === 'Needs Improvement' ? 'Failed' : 'Active'} /> },
             ]}
             keyExtractor={r => r.id}
           />
         )}
 
         {activeTab === 'leave' && (
-          <DataTable
+          <DataTable<any>
             data={leaveData}
             columns={[
               { id: 'employee', accessorKey: 'employeeName', header: 'Employee', sortable: true },

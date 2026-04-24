@@ -38,7 +38,7 @@ export function RemoteRequestForm({ open, onClose }: RemoteRequestFormProps) {
       footer={
         <>
           <Button variant="outline" onClick={onClose} className="mr-auto">Cancel</Button>
-          <Button variant="primary" onClick={handleSave}>Submit Request</Button>
+          <Button variant="default" onClick={handleSave}>Submit Request</Button>
         </>
       }
     >

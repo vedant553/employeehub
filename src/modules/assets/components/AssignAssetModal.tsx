@@ -106,7 +106,7 @@ export function AssignAssetModal({ asset, onClose }: Props) {
 
             <div className="flex gap-3 mt-2">
               <Button variant="outline" type="button" className="flex-1" onClick={onClose}>Cancel</Button>
-              <Button variant="primary" type="submit" className="flex-1">Confirm Assignment</Button>
+              <Button variant="default" type="submit" className="flex-1">Confirm Assignment</Button>
             </div>
           </form>
         )}

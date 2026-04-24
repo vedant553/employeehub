@@ -70,7 +70,7 @@ export default function AssetsRegistryPage() {
       <PageHeader
         title="Asset Registry"
         actions={
-          <Button variant="primary" className="flex items-center gap-2">
+          <Button variant="default" className="flex items-center gap-2">
             <Plus className="size-4" /> Add Asset
           </Button>
         }

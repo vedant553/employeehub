@@ -135,7 +135,7 @@ export function ApprovalsDashboard() {
             {['All', 'Leave', 'Remote Attendance', 'Performance'].map(t => (
               <Button 
                 key={t} 
-                variant={filterType === t ? 'primary' : 'outline'} 
+                variant={filterType === t ? 'default' : 'outline'} 
                 size="sm"
                 onClick={() => setFilterType(t as ApprovalType | 'All')}
               >
@@ -207,7 +207,7 @@ export function ApprovalsDashboard() {
                         <Button variant="outline" size="sm" className="text-ds-danger hover:bg-ds-danger hover:text-white" onClick={() => handleReject(item)}>
                           Reject
                         </Button>
-                        <Button variant="primary" size="sm" onClick={() => handleApprove(item)}>
+                        <Button variant="default" size="sm" onClick={() => handleApprove(item)}>
                           Approve
                         </Button>
                       </div>

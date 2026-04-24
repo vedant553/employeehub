@@ -112,7 +112,7 @@ export function EmployeePerformanceTab() {
                 <div className="bg-amber-50 p-3 rounded border border-amber-100 flex flex-col gap-2">
                   <span className="text-ds-label text-amber-800">Pending Manager Review</span>
                   {isManagerView && currentReview.status === 'Pending Manager Review' && (
-                    <Button size="sm" variant="primary" onClick={() => submitManagerReview(currentReview.id, 4, "Solid performance, keep it up.")}>Submit Manager Score (Demo)</Button>
+                    <Button size="sm" variant="default" onClick={() => submitManagerReview(currentReview.id, 4, "Solid performance, keep it up.")}>Submit Manager Score (Demo)</Button>
                   )}
                 </div>
               )}

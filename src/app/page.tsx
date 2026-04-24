@@ -66,7 +66,7 @@ export default function DashboardPage() {
 
   // --- Alerts / Action Items ---
   const alerts = React.useMemo(() => {
-    const items = []
+    const items: { id: string; type: string; title: string; severity: string; date: string }[] = []
     
     // Overdue Tasks
     const overdue = tasks.filter(t => t.status !== 'completed' && new Date(t.dueDate) < new Date())
@@ -96,7 +96,7 @@ export default function DashboardPage() {
               <Bell className="size-4 mr-2" /> 
               {notifications.filter(n => !n.isRead).length} New Alerts
             </Button>
-            <Button variant="primary" onClick={() => router.push('/tasks')}>
+            <Button variant="default" onClick={() => router.push('/tasks')}>
                Manage Workflow
             </Button>
           </div>
@@ -162,21 +162,29 @@ export default function DashboardPage() {
 
           {/* Core Table View (Task Overview or Employee Snapshot) */}
           <SectionCard title={currentUserRole === 'HR' ? "Recent Organization Activity" : "Active Workflow Items"}>
-             <DataTable 
-               data={currentUserRole === 'HR' ? employees.slice(0, 5) : tasks.filter(t => t.status !== 'completed').slice(0, 5)}
-               columns={currentUserRole === 'HR' ? [
-                 { id: 'name', accessorKey: 'name', header: 'Employee' },
-                 { id: 'role', accessorKey: 'role', header: 'Role' },
-                 { id: 'status', accessorKey: 'status', header: 'Status', cell: ({ row }) => <StatusBadge status={row.status} /> },
-                 { id: 'joinDate', accessorKey: 'joinDate', header: 'Join Date', cell: ({ row }) => <span suppressHydrationWarning>{new Date(row.joinDate).toLocaleDateString()}</span> }
-               ] : [
-                 { id: 'title', accessorKey: 'title', header: 'Task' },
-                 { id: 'assignee', accessorKey: 'assignee.name', header: 'Assignee' },
-                 { id: 'priority', accessorKey: 'priority', header: 'Priority', cell: ({ row }) => <SeverityBadge level={row.priority.charAt(0).toUpperCase() + row.priority.slice(1)} /> },
-                 { id: 'status', accessorKey: 'status', header: 'Status', cell: ({ row }) => <span className="capitalize">{row.status.replace('_', ' ')}</span> }
-               ]}
-               keyExtractor={(r) => r.id}
-             />
+             {currentUserRole === 'HR' ? (
+               <DataTable<any> 
+                 data={employees.slice(0, 5)}
+                 columns={[
+                   { id: 'name', accessorKey: 'name', header: 'Employee' },
+                   { id: 'role', accessorKey: 'role', header: 'Role' },
+                   { id: 'status', accessorKey: 'status', header: 'Status', cell: ({ row }) => <StatusBadge status={row.status} /> },
+                   { id: 'joinDate', accessorKey: 'joinDate', header: 'Join Date', cell: ({ row }) => <span suppressHydrationWarning>{new Date(row.joinDate).toLocaleDateString()}</span> }
+                 ]}
+                 keyExtractor={(r) => r.id}
+               />
+             ) : (
+               <DataTable<any>
+                 data={tasks.filter(t => t.status !== 'completed').slice(0, 5)}
+                 columns={[
+                   { id: 'title', accessorKey: 'title', header: 'Task' },
+                   { id: 'assignee', accessorKey: 'assignee.name', header: 'Assignee' },
+                   { id: 'priority', accessorKey: 'priority', header: 'Priority', cell: ({ row }) => <SeverityBadge level={row.priority.charAt(0).toUpperCase() + row.priority.slice(1)} /> },
+                   { id: 'status', accessorKey: 'status', header: 'Status', cell: ({ row }) => <span className="capitalize">{row.status.replace('_', ' ')}</span> }
+                 ]}
+                 keyExtractor={(r) => r.id}
+               />
+             )}
              <div className="mt-4 pt-4 border-t border-ds-neutral-100 text-center">
                 <Button variant="link" size="sm" onClick={() => router.push(currentUserRole === 'HR' ? '/employees' : '/tasks')}>
                   View All {currentUserRole === 'HR' ? 'Employees' : 'Tasks'} <ArrowUpRight className="size-3.5 ml-1" />

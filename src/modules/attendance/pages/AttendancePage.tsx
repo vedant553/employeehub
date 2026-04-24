@@ -22,7 +22,7 @@ export function AttendancePage() {
       <PageHeader 
         title="Attendance & Time Tracking" 
         actions={
-          <Button variant="primary" onClick={() => setIsRequestOpen(true)}>
+          <Button variant="default" onClick={() => setIsRequestOpen(true)}>
             Request Remote Work
           </Button>
         }

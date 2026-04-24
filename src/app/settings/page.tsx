@@ -45,7 +45,7 @@ export default function SettingsPage() {
         title="Settings & Configuration" 
         description="Manage system-wide rules, company policies, and organizational preferences."
         actions={
-          <Button variant="primary" onClick={handleSave} disabled={isSaving}>
+          <Button variant="default" onClick={handleSave} disabled={isSaving}>
             {isSaving ? 'Saving...' : showSuccess ? <><Check className="size-4 mr-2" /> Saved</> : <><Save className="size-4 mr-2" /> Save Changes</>}
           </Button>
         }

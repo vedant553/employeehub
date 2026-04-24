@@ -125,7 +125,7 @@ export default function DocumentsPage() {
         title="Documents" 
         description="Centralized repository for employee, company, and compliance files."
         actions={
-          <Button variant="primary" onClick={() => setIsUploadOpen(true)}>
+          <Button variant="default" onClick={() => setIsUploadOpen(true)}>
             <Plus className="size-4 mr-2" /> Upload Document
           </Button>
         }

@@ -36,7 +36,7 @@ export default function OnboardingPage() {
         title="Employee Onboarding" 
         description="Streamline the transition of new hires into the organization with structured workflows."
         actions={
-          <Button variant="primary">
+          <Button variant="default">
             <UserPlus className="size-4 mr-2" /> Initiate Onboarding
           </Button>
         }
