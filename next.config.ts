@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@hryantra/ui"]
+  transpilePackages: ['@hryantra/ui'],
 };
 
 export default nextConfig;
