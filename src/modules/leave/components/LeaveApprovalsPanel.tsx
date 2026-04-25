@@ -1,4 +1,5 @@
 "use client"
+const formatDate = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
 import * as React from 'react'
 import { SectionCard, Button, StatusBadge } from '@hryantra/ui'
 import { useStore } from '@/store/StoreProvider'
@@ -36,7 +37,7 @@ export function LeaveApprovalsPanel() {
                 </div>
                 <div className="flex items-center gap-2 text-ds-body-sm text-ds-neutral-600 mt-1">
                   <span className="font-semibold text-ds-brand-navy">Duration:</span>
-                  <span>{new Date(req.startDate).toLocaleDateString()} &mdash; {new Date(req.endDate).toLocaleDateString()}</span>
+                  <span>{formatDate(req.startDate)} &mdash; {formatDate(req.endDate)}</span>
                 </div>
                 <div className="text-ds-caption text-ds-neutral-500 italic mt-1 line-clamp-2 max-w-lg bg-ds-neutral-50 p-2 rounded border border-ds-neutral-100">
                   <span className="font-semibold not-italic">Reason:</span> {req.reason}

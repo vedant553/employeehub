@@ -8,6 +8,13 @@ import {
   BarChart3, CalendarDays, ArrowUpRight, TrendingUp, Bell, FileText 
 } from 'lucide-react'
 
+// Locale-pinned formatters — must be identical on server and client to avoid hydration mismatch
+const formatDate = (dateStr: string) =>
+  new Date(dateStr).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+
+const formatTime = (dateStr: string) =>
+  new Date(dateStr).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })
+
 // =============================================================================
 // Dashboard Sub-components
 // =============================================================================
@@ -150,7 +157,7 @@ export default function DashboardPage() {
                       </div>
                       <div className="flex flex-col">
                         <span className="text-ds-body-sm font-bold text-ds-brand-navy">{alert.title}</span>
-                        <span className="text-[10px] text-ds-neutral-400 uppercase font-bold tracking-wider">{alert.type} • Due {new Date(alert.date).toLocaleDateString()}</span>
+                        <span className="text-[10px] text-ds-neutral-400 uppercase font-bold tracking-wider">{alert.type} • Due {formatDate(alert.date)}</span>
                       </div>
                     </div>
                     <Button variant="ghost" size="xs" className="opacity-0 group-hover:opacity-100 transition-opacity">Resolve</Button>
@@ -169,7 +176,7 @@ export default function DashboardPage() {
                    { id: 'name', accessorKey: 'name', header: 'Employee' },
                    { id: 'role', accessorKey: 'role', header: 'Role' },
                    { id: 'status', accessorKey: 'status', header: 'Status', cell: ({ row }) => <StatusBadge status={row.status} /> },
-                   { id: 'joinDate', accessorKey: 'joinDate', header: 'Join Date', cell: ({ row }) => <span suppressHydrationWarning>{new Date(row.joinDate).toLocaleDateString()}</span> }
+                   { id: 'joinDate', accessorKey: 'joinDate', header: 'Join Date', cell: ({ row }) => <span >{formatDate(row.joinDate)}</span> }
                  ]}
                  keyExtractor={(r) => r.id}
                />
@@ -268,7 +275,7 @@ export default function DashboardPage() {
                     </div>
                     <div className="flex flex-col min-w-0">
                        <span className="text-ds-caption font-bold text-ds-brand-navy truncate">{n.title}</span>
-                       <span className="text-[10px] text-ds-neutral-400" suppressHydrationWarning>{new Date(n.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                       <span className="text-[10px] text-ds-neutral-400">{formatTime(n.createdAt)}</span>
                     </div>
                  </div>
                ))}

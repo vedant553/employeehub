@@ -1,4 +1,5 @@
 "use client"
+const formatTime = (d: string) => new Date(d).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })
 import * as React from 'react'
 import { useStore } from '@/store/StoreProvider'
 import { AppNotification } from '../types'
@@ -100,7 +101,7 @@ export function NotificationDropdown() {
                       <p className="text-ds-caption text-ds-neutral-500 line-clamp-2 mt-0.5">{notification.description}</p>
                       <div className="flex items-center gap-2 mt-2">
                         <span className="text-[10px] text-ds-neutral-400 font-medium">
-                          {new Date(notification.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                          {formatTime(notification.createdAt)}
                         </span>
                         {notification.relatedPath && (
                           <Link 

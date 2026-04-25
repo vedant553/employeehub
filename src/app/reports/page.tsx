@@ -1,4 +1,6 @@
 "use client"
+const formatDate = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+const formatTime = (d: string) => new Date(d).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })
 import * as React from 'react'
 import { PageHeader, SectionCard, DataTable, Button, Input, Select, StatusBadge, SeverityBadge, type ColumnDef } from '@hryantra/ui'
 import { useStore } from '@/store/StoreProvider'
@@ -204,7 +206,7 @@ export default function ReportsPage() {
             columns={[
               { id: 'date', accessorKey: 'date', header: 'Date', sortable: true },
               { id: 'employee', accessorKey: 'employeeName', header: 'Employee', sortable: true },
-              { id: 'checkIn', accessorKey: 'checkIn', header: 'Check-in', cell: ({ row }) => row.checkIn ? <span suppressHydrationWarning>{new Date(row.checkIn).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span> : '-' },
+              { id: 'checkIn', accessorKey: 'checkIn', header: 'Check-in', cell: ({ row }) => row.checkIn ? <span >{formatTime(row.checkIn)}</span> : '-' },
               { id: 'status', accessorKey: 'status', header: 'Status', cell: ({ row }) => <StatusBadge status={row.status} /> },
               { id: 'mode', accessorKey: 'mode', header: 'Mode', cell: ({ row }) => <span className="capitalize">{row.mode}</span> },
             ]}
@@ -220,7 +222,7 @@ export default function ReportsPage() {
               { id: 'assignee', header: 'Assignee', sortable: true, cell: ({ row }) => row.assignee.name },
               { id: 'priority', accessorKey: 'priority', header: 'Priority', cell: ({ row }) => <SeverityBadge level={row.priority.charAt(0).toUpperCase() + row.priority.slice(1)} uppercase={false} /> },
               { id: 'status', accessorKey: 'status', header: 'Status', cell: ({ row }) => <span className="capitalize px-2 py-0.5 rounded-full bg-ds-neutral-100 text-ds-body-xs font-medium">{row.status.replace('_', ' ')}</span> },
-              { id: 'dueDate', accessorKey: 'dueDate', header: 'Due Date', sortable: true, cell: ({ row }) => <span suppressHydrationWarning>{new Date(row.dueDate).toLocaleDateString()}</span> },
+              { id: 'dueDate', accessorKey: 'dueDate', header: 'Due Date', sortable: true, cell: ({ row }) => <span >{formatDate(row.dueDate)}</span> },
             ]}
             keyExtractor={t => t.id}
           />
@@ -246,7 +248,7 @@ export default function ReportsPage() {
               { id: 'employee', accessorKey: 'employeeName', header: 'Employee', sortable: true },
               { id: 'type', accessorKey: 'type', header: 'Type', sortable: true },
               { id: 'totalDays', accessorKey: 'totalDays', header: 'Days', sortable: true },
-              { id: 'startDate', accessorKey: 'startDate', header: 'Start Date', sortable: true, cell: ({ row }) => <span suppressHydrationWarning>{new Date(row.startDate).toLocaleDateString()}</span> },
+              { id: 'startDate', accessorKey: 'startDate', header: 'Start Date', sortable: true, cell: ({ row }) => <span >{formatDate(row.startDate)}</span> },
               { id: 'status', accessorKey: 'status', header: 'Status', cell: ({ row }) => <StatusBadge status={row.status} /> },
             ]}
             keyExtractor={r => r.id}

@@ -1,4 +1,5 @@
 import * as React from 'react'
+const formatDate = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
 import { ApprovalItem } from '../types'
 import { Button, StatusBadge } from '@hryantra/ui'
 import { useStore } from '@/store/StoreProvider'
@@ -59,7 +60,7 @@ export function ApprovalDrawer({ item, onClose, onApprove, onReject }: {
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-ds-caption text-ds-neutral-500 flex items-center gap-1"><Clock className="size-3"/> Submitted On</span>
-                <span className="text-ds-body-sm font-medium">{new Date(item.createdAt).toLocaleDateString()}</span>
+                <span className="text-ds-body-sm font-medium">{formatDate(item.createdAt)}</span>
               </div>
             </div>
 

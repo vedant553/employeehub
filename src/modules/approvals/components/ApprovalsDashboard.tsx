@@ -1,4 +1,5 @@
 "use client"
+const formatDate = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
 import * as React from 'react'
 import { PageHeader, SectionCard, StatusBadge, Button } from '@hryantra/ui'
 import { useStore, CURRENT_USER_ID } from '@/store/StoreProvider'
@@ -194,7 +195,7 @@ export function ApprovalsDashboard() {
                       </div>
                       <span className="text-ds-body-sm text-ds-neutral-700">{item.details.title}</span>
                       <span className="text-ds-caption text-ds-neutral-500 mt-1 flex items-center gap-1">
-                        <Clock className="size-3" /> Submitted {new Date(item.createdAt).toLocaleDateString()}
+                        <Clock className="size-3" /> Submitted {formatDate(item.createdAt)}
                       </span>
                     </div>
                   </div>
