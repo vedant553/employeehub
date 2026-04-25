@@ -28,7 +28,7 @@
         "./src/*"
       ],
       "@hryantra/ui": [
-        "../packages/ui/src/index.ts"
+        "./packages/ui/src/index.ts"
       ],
       "react": ["./node_modules/@types/react"],
       "react/*": ["./node_modules/@types/react/*"]
@@ -44,8 +44,8 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts",
-    "../packages/ui/src/**/*.ts",
-    "../packages/ui/src/**/*.tsx"
+    "./packages/ui/src/**/*.ts",
+    "./packages/ui/src/**/*.tsx"
   ],
   "exclude": [
     "node_modules"
